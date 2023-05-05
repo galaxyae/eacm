@@ -1016,7 +1016,7 @@
 								<div class="elementor-widget-container">
 									<div class="elementor-custom-embed">
 										<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-											src="https://maps.google.com/maps?q=Jalan%20Sunset%20Road%20No.%2020&amp;t=m&amp;z=15&amp;output=embed&amp;iwloc=near"
+											src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31918.267097544427!2d32.5993267155122!3d0.23976194993122293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177d967331da276f%3A0x9917c1ce2e230f6!2sMunyonyo%2C%20Kampala!5e0!3m2!1sen!2sug!4v1683297776323!5m2!1sen!2sug"
 											title="Kampala, Uganda"
 											aria-label="Kampala, Uganda"></iframe>
 									</div>
@@ -1053,7 +1053,7 @@
 													data-stop-vertical-effect=""></div>
 
 
-												<!----------------------------- 
+												<!-----------------------------
 			* controls_data : find the the props passed indie of data attribute
 			* props.SubmitResponseMarkup : contains the markup of error or success message
 			* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
@@ -1065,7 +1065,7 @@
 			function controls_data (value){
 				let currentWrapper = "mf-response-props-id-2860";
 				let currentEl = document.getElementById(currentWrapper);
-				
+
 				return currentEl ? currentEl.dataset[value] : false
 			}
 
@@ -1073,24 +1073,24 @@
 			let is_edit_mode = '' ? true : false;
 			let message_position = controls_data('messageposition') || 'top';
 
-			
+
 			let message_successIcon = controls_data('successicon') || '';
 			let message_errorIcon = controls_data('erroricon') || '';
 			let message_editSwitch = controls_data('editswitchopen') === 'yes' ? true : false;
 			let message_proClass = controls_data('editswitchopen') === 'yes' ? 'mf_pro_activated' : '';
-			
+
 			let is_dummy_markup = is_edit_mode && message_editSwitch ? true : false;
 
-			
+
 			return html`
 				<form
 					className="metform-form-content"
 					ref=${parent.formContainerRef}
 					onSubmit=${ validation.handleSubmit( parent.handleFormSubmit ) }
-				
+
 					>
-			
-			
+
+
 					${is_dummy_markup ? message_position === 'top' ?  props.ResponseDummyMarkup(message_successIcon, message_proClass) : '' : ''}
 					${is_dummy_markup ? ' ' :  message_position === 'top' ? props.SubmitResponseMarkup`${parent}${state}${message_successIcon}${message_errorIcon}${message_proClass}` : ''}
 
@@ -1114,7 +1114,7 @@
 								<div className="elementor-element elementor-element-1689e531 elementor-widget elementor-widget-mf-text" data-id="1689e531" data-element_type="widget" data-settings="{&quot;mf_input_name&quot;:&quot;mf-first-name&quot;}" data-widget_type="mf-text.default">
 				<div className="elementor-widget-container">
 					<div className="mf-input-wrapper">
-			
+
 			<input
 				type="text"
 				className="mf-input "
@@ -1131,7 +1131,7 @@
 					name="mf-first-name"
 					as=${html`<span className="mf-error-message"></span>`}
 					/>
-			
+
 					</div>
 
 				</div>
@@ -1143,7 +1143,7 @@
 								<div className="elementor-element elementor-element-7999e561 elementor-widget elementor-widget-mf-text" data-id="7999e561" data-element_type="widget" data-settings="{&quot;mf_input_name&quot;:&quot;mf-last-name&quot;}" data-widget_type="mf-text.default">
 				<div className="elementor-widget-container">
 					<div className="mf-input-wrapper">
-			
+
 			<input
 				type="text"
 				className="mf-input "
@@ -1160,7 +1160,7 @@
 					name="mf-last-name"
 					as=${html`<span className="mf-error-message"></span>`}
 					/>
-			
+
 					</div>
 
 				</div>
@@ -1175,15 +1175,15 @@
 			<div className="elementor-widget-wrap elementor-element-populated">
 								<div className="elementor-element elementor-element-723d4805 elementor-widget elementor-widget-mf-email" data-id="723d4805" data-element_type="widget" data-settings="{&quot;mf_input_name&quot;:&quot;mf-email&quot;}" data-widget_type="mf-email.default">
 				<div className="elementor-widget-container">
-			
+
 		<div className="mf-input-wrapper">
-			
+
 			<input type="email"  defaultValue="" className="mf-input " id="mf-input-email-723d4805" name="mf-email" placeholder="${ parent.decodeEntities(`Your Email`) } "  onInput=${parent.handleChange} aria-invalid=${validation.errors['mf-email'] ? 'true' : 'false' } ref=${el=> parent.activateValidation({"message":"This field is required.","emailMessage":"Please enter a valid Email address","minLength":1,"maxLength":"","type":"none","required":false,"expression":"null"}, el)}
 				/>
 
 					<${validation.ErrorMessage} errors=${validation.errors} name="mf-email" as=${html`<span className="mf-error-message"></span>`}
 				/>
-			
+
 					</div>
 
 		</div>
@@ -1195,7 +1195,7 @@
 								<div className="elementor-element elementor-element-699b3443 elementor-widget elementor-widget-mf-text" data-id="699b3443" data-element_type="widget" data-settings="{&quot;mf_input_name&quot;:&quot;mf-subject&quot;}" data-widget_type="mf-text.default">
 				<div className="elementor-widget-container">
 					<div className="mf-input-wrapper">
-			
+
 			<input
 				type="text"
 				className="mf-input "
@@ -1212,7 +1212,7 @@
 					name="mf-subject"
 					as=${html`<span className="mf-error-message"></span>`}
 					/>
-			
+
 					</div>
 
 				</div>
@@ -1227,11 +1227,11 @@
 			<div className="elementor-widget-wrap elementor-element-populated">
 								<div className="elementor-element elementor-element-4462219f elementor-widget elementor-widget-mf-textarea" data-id="4462219f" data-element_type="widget" data-settings="{&quot;mf_input_name&quot;:&quot;mf-comment&quot;}" data-widget_type="mf-textarea.default">
 				<div className="elementor-widget-container">
-			
+
 		<div className="mf-input-wrapper">
-			
+
 			<textarea className="mf-input mf-textarea " id="mf-input-text-area-4462219f"
-				name="mf-comment" 
+				name="mf-comment"
 				placeholder="${ parent.decodeEntities(`Your Message`) } "
 				cols="30" rows="10"
 									onInput=${ parent.handleChange }
@@ -1244,7 +1244,7 @@
 					name="mf-comment"
 					as=${html`<span className="mf-error-message"></span>`}
 					/>
-			
+
 					</div>
 
 				</div>
@@ -1272,7 +1272,7 @@
 
 					${is_dummy_markup ? message_position === 'bottom' ? props.ResponseDummyMarkup(message_successIcon, message_proClass) : '' : ''}
 					${is_dummy_markup ? ' ' : message_position === 'bottom' ? props.SubmitResponseMarkup`${parent}${state}${message_successIcon}${message_errorIcon}${message_proClass}` : ''}
-				
+
 				</form>
 			`
 		</script>
@@ -1337,22 +1337,19 @@
 														<li class="elementor-icon-list-item">
 															<span class="elementor-icon-list-icon">
 																<i aria-hidden="true" class="fas fa-circle"></i> </span>
-															<span class="elementor-icon-list-text">Phone : (+62) 81
-																314239</span>
+															<span class="elementor-icon-list-text">Phone : +256 751 807656, +256 701 893027</span>
 														</li>
 														<li class="elementor-icon-list-item">
 															<span class="elementor-icon-list-icon">
 																<i aria-hidden="true" class="fas fa-circle"></i> </span>
-															<span class="elementor-icon-list-text">Location : Jalan
-																Sunset Road No. 20</span>
+															<span class="elementor-icon-list-text">Location : Kampala, Uganda</span>
 														</li>
 														<li class="elementor-icon-list-item">
 															<span class="elementor-icon-list-icon">
 																<i aria-hidden="true" class="fas fa-circle"></i> </span>
 															<span class="elementor-icon-list-text">Email : <a
 																	href="mailto:info@eacmholdings.com"
-																	class="__cf_email__"
-																	data-cfemail="4821263e2d3b3c25272726082c2725292126662b2725">info@eacmholdings.com</a></span>
+																style="color:white;">info@eacmholdings.com</a></span>
 														</li>
 													</ul>
 												</div>
