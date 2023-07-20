@@ -1164,6 +1164,211 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Carousel wrapper -->
+            <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Merriweather'>
+            <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/plyr/3.4.8/plyr.css'>
+            <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css'>
+            <div class="owl-carousel video-section">
+                <div class="item">
+                  <div>
+                    <video class="js-player" crossorigin playsinline poster="images/thumbnail.png">
+                      <source src="videos/XKST7273.MP4" type="video/mp4" size="720">
+                    </video>
+                  </div>
+                </div>
+                <div class="item">
+                  <div>
+                    <video class="js-player" crossorigin playsinline poster="images/thumbnail.png">
+                      <source src="videos/VUGG8871.MP4" type="video/mp4" size="720">
+                    </video>
+                  </div>
+                </div>
+                <div class="item">
+                  <div>
+                    <video class="js-player" crossorigin playsinline poster="images/thumbnail.png">
+                      <source src="videos/PGKK9339.MP4" type="video/mp4" size="720">
+                    </video>
+                  </div>
+                </div>
+                <div class="item">
+                  <div>
+                    <video class="js-player" crossorigin playsinline poster="images/thumbnail.png">
+                      <source src="videos/IOWY5081.MP4" type="video/mp4" size="720">
+                    </video>
+                  </div>
+                </div>
+                <div class="item">
+                  <div>
+                    <video class="js-player" crossorigin playsinline poster="images/thumbnail.png">
+                      <source src="videos/EGIN9174.MP4" type="video/mp4" size="720">
+                    </video>
+                  </div>
+                </div>
+              </div>              
+
+
+
+            <style>
+             .video-section .item{
+  opacity:0.4;
+  transition:.4s ease all;
+  margin:0 20px;
+  transform:scale(.8);
+}
+
+@media(max-width:1000px){
+  .video-section .item{margin:0; transform:scale(.9)}
+}
+
+.video-section .active .item{
+  opacity:1;
+  transform:scale(1);
+} 
+
+
+.video-section .owl-item {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+.video-section video{
+  max-width:100%;
+  height:50vh;
+}
+
+            </style>
+
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/plyr/3.4.8/plyr.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js'></script><script  src="./script.js"></script>
+  <script>$('.owl-carousel').owlCarousel({
+    stagePadding: 200,
+    loop:true,
+    margin:10,
+    items:1,
+    nav:true,
+  responsive:{
+        0:{
+            items:1,
+            stagePadding: 60
+        },
+        600:{
+            items:1,
+            stagePadding: 100
+        },
+        1000:{
+            items:1,
+            stagePadding: 200
+        },
+        1200:{
+            items:1,
+            stagePadding: 250
+        },
+        1400:{
+            items:1,
+            stagePadding: 300
+        },
+        1600:{
+            items:1,
+            stagePadding: 350
+        },
+        1800:{
+            items:1,
+            stagePadding: 400
+        }
+    }
+})
+
+var playerSettings = {
+      controls : ['play-large'],
+      fullscreen : { enabled: false},
+      resetOnEnd : true,
+      hideControls  :true,
+  clickToPlay:true,
+      keyboard : false,
+    }
+
+const players = Plyr.setup('.js-player', playerSettings);
+
+ players.forEach(function(instance,index) {
+            instance.on('play',function(){
+                players.forEach(function(instance1,index1){
+                  if(instance != instance1){
+                        instance1.pause();
+                    }
+                });
+            });
+        });
+
+$('.video-section').on('translated.owl.carousel', function (event) {
+  players.forEach(function(instance,index1){
+                  instance.pause();
+                });
+});</script>
+  <script>
+    const videos = document.querySelectorAll('.carousel-video');
+const carouselContainer = document.querySelector('.carousel-container');
+let autoplayInterval;
+
+function pauseAllVideos() {
+  videos.forEach((video) => {
+    video.pause();
+  });
+}
+
+function startCarousel() {
+  autoplayInterval = setInterval(() => {
+    carouselContainer.scrollLeft += 320; // Adjust the scroll amount to show the next video
+  }, 5000); // Adjust the autoplay interval (5 seconds in this example)
+}
+
+function stopCarousel() {
+  clearInterval(autoplayInterval);
+}
+
+videos.forEach((video) => {
+  video.addEventListener('click', () => {
+    pauseAllVideos();
+    stopCarousel();
+    video.play();
+  });
+
+  video.addEventListener('mouseover', () => {
+    pauseAllVideos();
+    stopCarousel();
+    video.play();
+  });
+
+  video.addEventListener('mouseout', () => {
+    video.pause();
+    startCarousel();
+  });
+});
+
+document.addEventListener('click', (event) => {
+  const clickedElement = event.target;
+  const isVideoOrControls = videos.some((video) =>
+    video.contains(clickedElement)
+  );
+
+  if (!isVideoOrControls) {
+    pauseAllVideos();
+    startCarousel();
+  }
+});
+
+// Start the carousel on page load
+startCarousel();
+
+  </script>
+  
+
+<!-- Carousel wrapper -->
+
+
             <section
                 class="elementor-section elementor-top-section elementor-element elementor-element-5f523f5 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                 data-id="5f523f5" data-element_type="section">
